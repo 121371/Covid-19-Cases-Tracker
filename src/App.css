@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+html,
+body {
+  margin: 0;
+  height: 100%;
+  background-color: white;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
