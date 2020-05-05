@@ -1,0 +1,15 @@
+.footer {
+    background-color: whitesmoke;
+}
+
+.footer li {
+    margin: 16px;
+}
+
+.footer ul {
+    justify-content: center;
+}
+
+.footer .description {
+    text-align: center;
+}

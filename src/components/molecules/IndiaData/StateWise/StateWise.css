@@ -1,0 +1,45 @@
+.state-wise {
+    max-height: 450px;
+    overflow: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  .state-wise {
+    border: 1px solid red;
+    padding: 6px;
+    border-radius: 5px;
+  }
+  .state-wise .table {
+    font-size: 13px;
+  }
+
+  .state-wise .table th {
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.85rem;
+  }
+
+  .state-wise .table td {
+    padding: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.25rem;
+  }
+
+  .state-wise .table td:last-child {
+    text-align: center;
+  }
+
+  .state-wise h3 {
+    color: #007bff;
+  }
+}
+
+.state-wise thead {
+  background-color: cadetblue;
+}
+
+.state-wise tr:hover {
+  background-color: rgba(126, 93, 164, 0.08);
+}

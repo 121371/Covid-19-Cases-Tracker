@@ -1,0 +1,11 @@
+.district-status .carousel.pointer-event{
+        touch-action: pan-y pinch-zoom;
+}
+
+@media (max-width: 600px) {
+  .district-status h4 {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+

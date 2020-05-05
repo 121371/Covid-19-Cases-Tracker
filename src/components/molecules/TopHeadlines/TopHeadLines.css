@@ -1,0 +1,25 @@
+.top-headlines {
+    margin: 18px;
+}
+
+.top-headlines img{
+  height: 80px;
+  width: 80px;
+  background-color: black;
+}
+
+.media-body {
+    color: black;
+}
+
+.media a {
+    min-width: 100%;
+    text-decoration: none;
+    border-bottom: 1px solid #dadee2;
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.media a:hover {
+    background-color: rgba(126,93,164,.08);
+}

@@ -1,0 +1,16 @@
+.header {
+  color: white;
+  text-align: center;
+  padding: 20px;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTLGpzkKGI4QRNj7LyhQ-s_5-iQnq3WnkCEfM7mrAaIwYe7VPwu&usqp=CAU");
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 8px;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,59 @@
+.main-content {
+  flex: 3;
+  background: whitesmoke;
+  /* border: 1px solid red ; */
+  margin: 18px;
+  padding: 10px;
+  border-radius: 26px;
+}
+
+.sub-main-content h2 {
+  border-radius: 50%;
+}
+
+.main-content .data-numbers {
+  flex: 1;
+}
+
+.main-content .chart-wrapper {
+  flex-direction: column;
+  flex: 2;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: white;
+}
+
+@media (max-width: 600px) {
+  .main-content .chart-wrapper .data-graph {
+    flex-direction: column;
+  }
+
+  .main-content .chart-wrapper h4 {
+    padding-top: 10px;
+    text-align: center;
+    flex: 20%;
+  }
+  .main-content .chart-wrapper .data-graph {
+    display: flex;
+    /* flex-direction: column; */
+    flex: 80%;
+  }
+
+  .main-content .data-numbers .nav-link {
+      padding-left: 8px;
+      padding-top: 0;
+      padding-bottom: 0;
+  }
+
+  .main-content .data-numbers h6 {
+      font-size: 15px;
+      padding-bottom: 5px;
+      padding-top: 3px;
+  }
+}
+
+.dropdown-menu {
+  transform: translate3d(5px, 35px, 0px) !important;
+  max-height:300px;/* you can change as you need it */
+  overflow: auto;/* to get scroll */
+}
