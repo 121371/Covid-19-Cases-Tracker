@@ -23,15 +23,26 @@ const MainContent = props => {
   const [indiaWeeklyData, setIndiaWeeklyData] = useState({});
   const [lastUpdatedTimeFromChild, setLastUpdatedTime] = useState("");
 
+  useEffect(() => {
+    axios
+      .get(`${WEEKLY_COUNTRY_DATA_API}?region=india`)
+      .then(response => {
+        console.log("seee", response)
+          setIndiaWeeklyData(response);
+      })
+      .catch(error => {
+        console.log(
+          "Error occured while fetching the india weekly country api",
+          error
+        );
+      });
+  }, []);
+
 
   useEffect(() => {
     axios
       .get(`${WEEKLY_COUNTRY_DATA_API}?region=${selectedCountryData.name}`)
       .then(response => {
-        console.log("seee", selectedCountryData)
-        if(selectedCountryData.name === "INDIA") {
-          setIndiaWeeklyData(response);
-        }
         setWeeklyData(response);
       })
       .catch(error => {
@@ -48,7 +59,6 @@ const MainContent = props => {
   };
 
   const [weeklyData, setWeeklyData] = useState({});
-  console.log("inda wee", get(indiaWeeklyData, "data.data", {}))
 
   const getCountryList = () => {
     return (

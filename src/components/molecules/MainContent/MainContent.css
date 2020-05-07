@@ -40,15 +40,13 @@
   }
 
   .main-content .data-numbers .nav-link {
-      padding-left: 8px;
-      padding-top: 0;
-      padding-bottom: 0;
+      padding: 0 10px;
   }
 
   .main-content .data-numbers h6 {
       font-size: 15px;
-      padding-bottom: 5px;
-      padding-top: 3px;
+      padding-bottom: 10px;
+      padding-top: 7px;
   }
 }
 
