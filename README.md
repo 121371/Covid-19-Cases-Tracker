@@ -1,4 +1,4 @@
-https://covid-19-info-tracker.web.app/
+Application URL:  https://covid-19-info-tracker.web.app/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
