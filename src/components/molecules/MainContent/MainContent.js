@@ -12,7 +12,7 @@ import DistrictWise from "../IndiaData/DistrictWise/DistrictWise";
 import DistrictStatus from "../IndiaData/DistrictStatus/DistrictStatus";
 import "./MainContent.css";
 import Lockdown3 from "../IndiaData/Lockdown3/Lockdown3";
-import TopHeadlines from "../TopHeadlines/TopHeadlines";
+// import TopHeadlines from "../TopHeadlines/TopHeadlines";
 
 const MainContent = props => {
   const { data } = props;
@@ -27,7 +27,6 @@ const MainContent = props => {
     axios
       .get(`${WEEKLY_COUNTRY_DATA_API}?region=india`)
       .then(response => {
-        console.log("seee", response)
           setIndiaWeeklyData(response);
       })
       .catch(error => {
@@ -91,15 +90,34 @@ const MainContent = props => {
     );
   };
 
+  const getYesterdaysDataFromDom = () => {
+    if(document && document.querySelector('.text-muted') && document.querySelector('.text-muted').childNodes[0]
+     && document.querySelector('.text-muted').childNodes[0].wholeText
+     && document.querySelector('.text-muted').childNodes[0].wholeText.split(' ')) {
+      return Number(document.querySelector('.text-muted').childNodes[0].wholeText.split(' ')[0]);
+    }
+    return 0;
+  }
+
   const getChartData = () => {
     let chartAPIData = [];
     const weeklyApiData = get(weeklyData, "data.data", {});
+    let lastDayData;
     Object.keys(weeklyApiData).length > 0 &&
-      Object.keys(weeklyApiData).forEach(date => {
-        chartAPIData.unshift([
-          date.toDateShortFormat(),
-          parseInt(weeklyApiData[date].total_cases)
-        ]);
+      Object.keys(weeklyApiData).forEach((date, index) => {
+        if(index === 1) {
+          getYesterdaysDataFromDom() && chartAPIData.unshift([
+            date.toDateShortFormat(),
+            getYesterdaysDataFromDom()
+          ]);
+        }
+        if(index > 1 && index !== (Object.keys(weeklyApiData).length -1)) { //as array is in reverse order ignoring the todays date data as we can't compute todays data in last week status
+          chartAPIData.unshift([
+            date.toDateShortFormat(),
+            lastDayData - parseInt(weeklyApiData[date].total_cases)
+          ]);
+        }
+        lastDayData = parseInt(weeklyApiData[date].total_cases);
       });
     chartAPIData.unshift(["Element", "Density"]);
     return chartAPIData;
@@ -175,7 +193,8 @@ const MainContent = props => {
                 <h6>Lockdown 3.0</h6>
               </a>
             </li>
-            <li className="nav-item">
+            {/* currently hiding the news tab as API stopped working */}
+            {/* <li className="nav-item">
               <a
                 className="nav-link"
                 id="top-headlines-tab"
@@ -187,7 +206,7 @@ const MainContent = props => {
               >
                 <h6>News</h6>
               </a>
-            </li>
+            </li> */}
           </ul>
           <div className="tab-content" id="pills-tabContent">
             <div
@@ -316,7 +335,8 @@ const MainContent = props => {
               role="tabpanel"
               aria-labelledby="top-headlines-tab"
             >
-             <TopHeadlines />
+              {/* currently hiding the news tab as API stopped working */}
+             {/* <TopHeadlines /> */} 
             </div>
           </div>
           <hr />
